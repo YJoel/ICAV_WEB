@@ -1,0 +1,278 @@
+:root {
+  /* Paleta de colores */
+  --azul: #004aad;
+  --azul-claro: #38b6ff;
+  --gris: #878993;
+  --morado: #8c52ff;
+  --amarillo: #ffde59;
+  --rojo: #ff3131;
+  --rosa: #ff66c4;
+  --gris-oscuro: #545454;
+  --azul-oscuro: #1e225b;
+  --naranja: #ff914d;
+  --verde: #00bf63;
+}
+
+body {
+  position: relative;
+  display: contents;
+  font-family: sans-serif;
+  color: white;
+  font-size: medium;
+}
+
+a#atras {
+  position: absolute;
+  text-decoration: none;
+  background-color: var(--azul);
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: white;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+}
+
+.navbar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--azul);
+  font-size: larger;
+}
+
+.navbar * {
+  margin: 2px;
+  /*border: 1px solid black;*/
+}
+
+.container-logo {
+  position: relative;
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+
+.container-logo img {
+  position: relative;
+  width: 100%;
+}
+
+.container-info {
+  text-align: center;
+}
+
+.container-menu-exit {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.container-menu-exit .exit {
+  position: relative;
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+
+.container-menu-exit .logo {
+  position: relative;
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+
+.container-menu-exit img {
+  position: relative;
+  width: 100%;
+}
+
+.content {
+  position: relative;
+  
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.ministerios {
+  position: relative;
+  width: 140px;
+  margin: auto;
+  aspect-ratio: 1/1;
+}
+
+.ministerios img {
+  position: relative;
+  width: 100%;
+}
+
+.tituloMinisterio {
+  text-align: center;
+  width: 100%;
+  margin: 10px;
+}
+
+/* CSS - FORMULARIO */
+
+.form {
+  position: relative;
+  width: 80%;
+  margin: 5% auto;
+}
+
+.form form {
+  /*position: relative;
+  width: 60%;
+  margin: 20px auto;*/
+  position: relative;
+  z-index: 3;
+  margin: auto;
+  width: 70%;
+  color: black;
+}
+
+.form form .section:nth-child(1) {
+  position: relative;
+  z-index: 6;
+  width: 100%;
+  margin: 10px auto;
+  transition: 0.3s;
+  border: 2px dashed var(--gris-oscuro);
+  border-radius: 30px;
+}
+
+.form form .section {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  border: 2px dashed var(--gris-oscuro);
+  border-radius: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.form form .section.active {
+  opacity: 1;
+}
+.form form .section:not(.active) {
+  opacity: 0;
+}
+
+.form form .section .title {
+  position: relative;
+  text-align: center;
+  margin: 10px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.form form .section .inputs {
+  position: relative;
+  margin-left: 20%;
+  display: flex;
+}
+
+.form form .section .inputs .groups {
+  position: relative;
+  padding: 10px;
+  width: 50%;
+}
+
+/* CSS - FORMULARIO - INPUTS */
+
+.form form .section .inputs .groups input, select {
+  margin-bottom: 10px;
+}
+
+.form form .section .inputs .groups input, select {
+  border: 2px solid var(--gris);
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.list-sections {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: 1% auto;
+}
+
+.list-sections button.btn {
+  position: relative;
+  width: auto;
+  border-radius: 10px;
+  padding: 7px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.list-sections button.active {
+  background-color: var(--azul);
+  color: white;
+}
+
+form .submit {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+}
+
+form .section .submit input[type="submit"] {
+  position: relative;
+  border: 0px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 20px;
+  scale: 1.2;
+  margin: 10px auto;
+  transition: 0.3s;
+}
+
+form .section .submit input[type="submit"]:hover {
+  background-color: var(--azul);
+  color: white;
+}
+
+/* CSS - FORMULARIO - INPUTS */
+
+.container-funciones{
+  position: relative;
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: var(--azul);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.funciones{
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto 10px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.funciones a{
+  text-decoration: none;
+  color: var(--azul);
+}
+
+.funciones:hover{
+  box-shadow: 0px 0px 0px 5px;
+}

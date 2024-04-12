@@ -1,0 +1,93 @@
+:root {
+  /* Paleta de colores */
+  --azul: #004aad;
+  --azul-claro: #38b6ff;
+  --gris: #878993;
+  --morado: #8c52ff;
+  --amarillo: #ffde59;
+  --rojo: #ff3131;
+  --rosa: #ff66c4;
+  --gris-oscuro: #545454;
+  --azul-oscuro: #1e225b;
+  --naranja: #ff914d;
+  --verde: #00bf63;
+}
+
+body {
+  position: relative;
+  display: contents;
+  font-family: sans-serif;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-card {
+  position: relative;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--azul);
+  border-radius: 30px;
+  aspect-ratio: 16/9;
+}
+
+.container-card .card {
+  position: relative;
+  display: flex;
+  width: 80%;
+  text-align: center;
+  align-content: center;
+  justify-content: space-between;
+  font-size: xx-large;
+  color: white;
+}
+
+.card .el {
+  position: relative;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.el img {
+  position: relative;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.el img:hover {
+  animation: girar 1s ease;
+}
+
+@keyframes girar {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.container-logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.container-logo .logo {
+  position: relative;
+  width: 10%;
+}
+
+.logo img {
+  position: relative;
+  width: 100%;
+}
