@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ministerio - Arte y Música</title>
+  <title>Ministerio - Ujier</title>
   <link rel="shortcut icon" href="../../../logos/ICAV-logo-pes.png" type="image/x-icon">
   <link rel="stylesheet" href="../resources/css/styles.css" />
 </head>
@@ -41,9 +41,9 @@
     </div>
   </div>
   <div class="content">
-    <h1 class="tituloMinisterio" style="color: var(--azul)">MINISTERIO ARTE Y MÚSICA</h1>
-    <a href="../arteymusica/" class="ministerios">
-      <img src="../../../logos/icon-arte-y-musica.png" alt="" style="--color: var(--azul)">
+    <h1 class="tituloMinisterio" style="color: var(--naranja)">MINISTERIO DE UJIERES</h1>
+    <a href="../escuelaparapadres/" class="ministerios">
+      <img src="../../../logos/icon-ujieres.png" alt="" style="--color: var(--naranja)">
     </a>
   </div>
 </body>

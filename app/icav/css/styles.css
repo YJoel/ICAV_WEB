@@ -24,11 +24,16 @@ body {
 a#atras{
     position: absolute;
     text-decoration: none;
-    background-color: var(--azul);
+    background: linear-gradient(to right, var(--azul), var(--azul-claro));
     padding: 10px 15px;
     border-radius: 20px;
     color: white;
     z-index: 1;
+    transition: 0.3s;
+}
+
+a#atras:hover{
+  box-shadow: 3px 3px 5px var(--gris);
 }
 
 .container {

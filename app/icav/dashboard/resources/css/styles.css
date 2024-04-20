@@ -21,16 +21,6 @@ body {
   font-size: medium;
 }
 
-a#atras {
-  position: absolute;
-  text-decoration: none;
-  background-color: var(--azul);
-  padding: 10px 15px;
-  border-radius: 20px;
-  color: white;
-  z-index: 1;
-}
-
 .container {
   position: relative;
 }
@@ -90,7 +80,6 @@ a#atras {
 
 .content {
   position: relative;
-  
   display: flex;
   width: 100%;
   align-items: center;
@@ -110,6 +99,11 @@ a#atras {
   width: 100%;
 }
 
+.ministerios img:hover {
+  border-radius: 18px;
+  box-shadow: 0px 0px 0px 5px var(--color);
+}
+
 .tituloMinisterio {
   text-align: center;
   width: 100%;
@@ -117,11 +111,14 @@ a#atras {
 }
 
 /* CSS - FORMULARIO */
+.container-form {
+  position: relative;
+}
 
 .form {
   position: relative;
   width: 80%;
-  margin: 5% auto;
+  margin: 10% auto auto auto;
 }
 
 .form form {
@@ -143,6 +140,7 @@ a#atras {
   transition: 0.3s;
   border: 2px dashed var(--gris-oscuro);
   border-radius: 30px;
+  overflow: hidden;
 }
 
 .form form .section {
@@ -175,7 +173,6 @@ a#atras {
 
 .form form .section .inputs {
   position: relative;
-  margin-left: 20%;
   display: flex;
 }
 
@@ -183,28 +180,30 @@ a#atras {
   position: relative;
   padding: 10px;
   width: 50%;
+  text-align: center;
 }
 
 /* CSS - FORMULARIO - INPUTS */
 
-.form form .section .inputs .groups input, select {
+.form form .section .inputs .groups input,
+select {
   margin-bottom: 10px;
 }
 
-.form form .section .inputs .groups input, select {
+.form form .section .inputs .groups input,
+select {
   border: 2px solid var(--gris);
   padding: 5px;
   border-radius: 15px;
 }
-
 .list-sections {
   position: absolute;
   z-index: 10;
   width: 100%;
   text-align: center;
+  margin-top: -7%;
   left: 0;
   right: 0;
-  margin: 1% auto;
 }
 
 .list-sections button.btn {
@@ -214,6 +213,11 @@ a#atras {
   padding: 7px;
   border: 0px;
   cursor: pointer;
+  transition: 0.1s;
+}
+
+.list-sections button.btn:hover:not(.active) {
+  border: 2px solid var(--azul);
 }
 
 .list-sections button.active {
@@ -222,7 +226,7 @@ a#atras {
 }
 
 form .submit {
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -242,13 +246,50 @@ form .section .submit input[type="submit"] {
 }
 
 form .section .submit input[type="submit"]:hover {
+  cursor: pointer;
   background-color: var(--azul);
   color: white;
 }
 
+form .section .result{
+  position: relative;
+  text-align: center;
+  height: 20px;
+  margin: auto;
+  color: white;
+  border-radius: 10px;
+  
+}
+
+form .section .result.success{
+  opacity: 0;
+  background-color: var(--verde);
+}
+
+.success, .failed{
+  opacity: 0;
+  animation: desaparecer ease-out 3s;
+}
+
+@keyframes desaparecer {
+  0%{
+    opacity: 1;
+  }
+  80%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+form .section .result.failed{
+  background-color: var(--rojo);
+}
+
 /* CSS - FORMULARIO - INPUTS */
 
-.container-funciones{
+.container-funciones {
   position: relative;
   width: 100%;
   margin: 20px;
@@ -260,7 +301,7 @@ form .section .submit input[type="submit"]:hover {
   align-items: center;
 }
 
-.funciones{
+.funciones {
   padding: 10px;
   border-radius: 10px;
   margin: auto 10px;
@@ -268,11 +309,55 @@ form .section .submit input[type="submit"]:hover {
   transition: 0.3s;
 }
 
-.funciones a{
+.funciones a {
   text-decoration: none;
   color: var(--azul);
 }
 
-.funciones:hover{
+.funciones:hover {
   box-shadow: 0px 0px 0px 5px;
+}
+
+.utilities {
+  position: relative;
+  color: black;
+  display: flex;
+  margin-top: 1%;
+}
+
+.utilities .utilidad {
+  position: relative;
+  border-radius: 20px;
+  color: white;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+.utilities .utilidad a {
+  margin: auto 10px;
+  padding: 10px;
+  background: linear-gradient(to right, var(--verde), var(--verde));
+  border-radius: 30px 0 0 30px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.utilities .utilidad a:hover:not(#atras) {
+  box-shadow: 3px 3px 5px var(--verde);
+}
+
+.utilities .utilidad a#atras:hover {
+  box-shadow: 3px 3px 5px var(--gris);
+}
+
+.utilities .utilidad a#atras {
+  border-radius: 30px 0 0 30px;
+  background: var(--gris);
+}
+
+@media screen and (max-width: 800px) {
+  .form {
+    margin: 20% auto auto auto;
+  }
 }

@@ -38,35 +38,48 @@
     </div>
     <div class="content">
       <a href="../pastoral/" class="ministerios">
-        <img src="../../../logos/icon-pastoral.png" alt="">
+        <img src="../../../logos/icon-pastoral.png" alt="" style="--color: var(--gris)">
       </a>
       <a href="../escuelaparapadres/" class="ministerios">
-        <img src="../../../logos/icon-escuela-para-padres.png" alt="">
+        <img src="../../../logos/icon-escuela-para-padres.png" alt="" style="--color: var(--morado)">
       </a>
       <a href="../arteymusica/" class="ministerios">
-        <img src="../../../logos/icon-arte-y-musica.png" alt="">
+        <img src="../../../logos/icon-arte-y-musica.png" alt="" style="--color: var(--azul)">
       </a>
       <a href="../infancia/" class="ministerios">
-        <img src="../../../logos/icon-infancia.png" alt="">
+        <img src="../../../logos/icon-infancia.png" alt="" style="--color: var(--amarillo)">
       </a>
       <a href="../jovenes/" class="ministerios">
-        <img src="../../../logos/icon-jovenes.png" alt="">
+        <img src="../../../logos/icon-jovenes.png" alt="" style="--color: var(--rojo)">
       </a>
       <a href="../damas/" class="ministerios">
-        <img src="../../../logos/icon-damas.png" alt="">
+        <img src="../../../logos/icon-damas.png" alt="" style="--color: var(--rosa)">
       </a>
       <a href="../audiovisuales/" class="ministerios">
-        <img src="../../../logos/icon-audiovisuales.png" alt="">
+        <img src="../../../logos/icon-audiovisuales.png" alt="" style="--color: var(--gris-oscuro)">
       </a>
       <a href="../caballeros/" class="ministerios">
-        <img src="../../../logos/icon-caballeros.png" alt="">
+        <img src="../../../logos/icon-caballeros.png" alt="" style="--color: var(--azul-oscuro)">
+      </a>
+      <a href="../ujier/" class="ministerios">
+        <img src="../../../logos/icon-ujieres.png" alt="" style="--color: var(--naranja)">
       </a>
       <a href="../desarrollosocial/" class="ministerios">
-        <img src="../../../logos/icon-desarrollo-social.png" alt="">
+        <img src="../../../logos/icon-desarrollo-social.png" alt="" style="--color: var(--verde)">
       </a>
       <a href="../evangelismo/" class="ministerios">
-        <img src="../../../logos/icon-evangelismo.png" alt="">
+        <img src="../../../logos/icon-evangelismo.png" alt="" style="--color: var(--azul-claro)">
       </a>
     </div>
+    <script>
+      fetch("../../../../Base de Datos/MEMBRECIA ICAV (Respuestas).csv")
+        .then((response => response.text()))
+        .then((data) => {
+          let matriz = data.split("\n")
+          matriz.forEach((row)=>{
+            console.log(row)
+          })
+        })
+    </script>
   </body>
 </html>
