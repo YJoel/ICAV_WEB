@@ -134,13 +134,39 @@ body {
 
 .form form .section:nth-child(1) {
   position: relative;
-  z-index: 6;
   width: 100%;
-  margin: 10px auto;
   transition: 0.3s;
   border: 2px dashed var(--gris-oscuro);
   border-radius: 30px;
   overflow: hidden;
+}
+
+form .buttonsnum{
+  position: relative;
+  display: flex;
+  margin-top: 1px;
+  z-index: 10;
+  justify-content: center;
+  width: 100%;
+}
+
+form .buttonsnum button{
+  cursor: pointer;
+}
+
+.buttonsnum button.btn {
+  position: relative;
+  width: auto;
+  border-radius: 10px;
+  padding: 7px;
+  border: 0px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.buttonsnum button.active {
+  background-color: var(--azul);
+  color: white;
 }
 
 .form form .section {
@@ -152,7 +178,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 100%;
+  bottom: 30px;
   transition: 0.3s;
 }
 

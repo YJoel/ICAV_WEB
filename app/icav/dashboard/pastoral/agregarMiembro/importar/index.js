@@ -15,15 +15,21 @@ formFile.addEventListener("submit", (e) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      divResul.classList.remove("failed");
+      divResul.classList.remove("success");
       if (data.result == 1) {
-        divResul.classList.add("success");
-        divResul.classList.remove("failed");
-        divResul.innerHTML = "Archivo Subido";
+        setTimeout(() => {
+          divResul.classList.add("success");
+          divResul.classList.remove("failed");
+          divResul.innerHTML = "Archivo Subido";
+        }, 500);
       }
       if (data.result == 0) {
-        divResul.classList.add("failed");
-        divResul.classList.remove("success");
-        divResul.innerHTML = "El archivo ya existe";
+        setTimeout(() => {
+          divResul.classList.add("failed");
+          divResul.classList.remove("success");
+          divResul.innerHTML = "El archivo ya existe";
+        }, 500);
       }
       /*fetch(`./../../../resources/pastoral/${archivo}`)
           .then((res) => res.text())

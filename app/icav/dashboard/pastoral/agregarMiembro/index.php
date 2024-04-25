@@ -34,7 +34,8 @@
     <div class="utilities">
       <div class="utilidad">
         <a href="../" id="atras">
-          <b><</b> VOLVER ATRAS
+          <b>
+            < </b> VOLVER ATRAS
         </a>
       </div>
       <div class="utilidad">
@@ -77,29 +78,28 @@
                   Nombres
                 </label>
                 <br>
-                <input type="text" id="nombres" name="nombres">
+                <input type="text" id="nombres" name="nombres" required>
                 <br>
                 <label for="genero">
                   Genero
                 </label>
                 <br>
-                <input type="radio" value="F" name="genero" id="F">
-                <label for="F">Femenino</label>
-                <br>
-                <input type="radio" value="M" name="genero" id="M">
-                <label for="M">Masculino</label>
+                <select id="genero" name="genero" required>
+                  <option value="M">M</option>
+                  <option value="F">F</option>
+                </select>
                 <br>
                 <label for="fNacimiento">
                   Fecha de Nacimiento
                 </label>
                 <br>
-                <input type="date" id="fNacimiento" name="fNacimiento">
+                <input type="date" id="fNacimiento" name="fNacimiento" required>
                 <br>
                 <label for="nacionalidad">
                   Nacionalidad
                 </label>
                 <br>
-                <input type="text" id="nacionalidad" name="nacionalidad">
+                <input type="text" id="nacionalidad" name="nacionalidad" required>
                 <br>
                 <label for="fotoperfil">
                   Foto Perfil
@@ -113,25 +113,34 @@
                   Apellidos
                 </label>
                 <br>
-                <input type="text" id="apellidos" name="apellidos">
+                <input type="text" id="apellidos" name="apellidos" required>
                 <br>
-                <label for="cedula">
-                  Cedula
+                <label for="tipoid">Tipo Identificacion</label>
+                <br>
+                <select id="tipoid" name="tipoid" required>
+                  <option value="TI">Tarjeta de Identidad</option>
+                  <option value="CC">Cedula de Ciudadania</option>
+                  <option value="CE">Cedula de Extranjeria</option>
+                  <option value="PP">Pasaporte</option>
+                </select>
+                <br>
+                <label for="identificacion">
+                  No. Identificación
                 </label>
                 <br>
-                <input type="number" id="cedula" name="cedula">
+                <input type="number" id="identificacion" name="identificacion" min="8000000" required>
                 <br>
                 <label for="lNacimiento">
                   Lugar de Nacimiento
                 </label>
                 <br>
-                <input type="text" id="lNacimiento" name="lNacimiento">
+                <input type="text" id="lNacimiento" name="lNacimiento" required>
                 <br>
                 <label for="estadocivil">
                   Estado Civil
                 </label>
                 <br>
-                <select id="estadocivil" name="estadocivil">
+                <select id="estadocivil" name="estadocivil" required>
                   <option value="Soltero">Soltero</option>
                   <option value="Casado">Casado</option>
                   <option value="Divorciado">Viudo</option>
@@ -146,25 +155,25 @@
             </div>
             <div class="inputs">
               <div class="groups">
-                <label for="">
+                <label for="direccion">
                   Dirección
                 </label>
                 <br>
-                <input type="text">
+                <input type="text" id="direccion" name="direccion" required>
                 <br>
-                <label for="">
+                <label for="correo">
                   Correo eletronico
                 </label>
                 <br>
-                <input type="email">
+                <input type="email" id="correo" name="correo">
                 <br>
               </div>
               <div class="groups">
-                <label for="">
+                <label for="telefono">
                   Teléfono
                 </label>
                 <br>
-                <input type="tel">
+                <input type="tel" id="telefono" name="telefono" required>
                 <br>
               </div>
             </div>
@@ -182,7 +191,7 @@
                 <input type="date" id="fMatrimonio" name="fMatrimonio">
                 <br>
                 <label for="CMsi CMno">
-                  Conyuge es miembro de la Iglesia
+                  Conyugue es miembro de la Iglesia
                 </label>
                 <br>
                 <input type="radio" name="CM" value="SI" id="CMsi">
@@ -196,14 +205,14 @@
                   Número de Hijos
                 </label>
                 <br>
-                <input type="number" id="nHijos" name="nHijos">
+                <input type="number" id="nHijos" name="nHijos" min="0">
                 <br>
-                <label for="">
+                <label for="resCMsino">
                   En caso que la respuesta anterior: <b>conyugue miembro de la iglesia</b> sea sí, indicar el nombre del
                   conyugue
                 </label>
                 <br>
-                <input type="text" disabled id="resCMsino" name="resCMsino">
+                <input type="text" readonly id="resCMsino" name="resCMsino">
                 <br>
               </div>
             </div>
@@ -237,11 +246,11 @@
                 <br>
               </div>
               <div class="groups">
-                <label for="">
+                <label for="fechabautismo">
                   Fecha de Bautismo
                 </label>
                 <br>
-                <input type="date">
+                <input type="date" id="fechabautismo" name="fechabautismo">
                 <br>
                 <label for="iglesiabautismo">
                   Lugar e Iglesia de Bautismo
@@ -254,7 +263,7 @@
                   iglesia
                 </label>
                 <br>
-                <input type="text" disabled id="resAIsino">
+                <input type="text" readonly name="resAIsino" id="resAIsino">
                 <br>
               </div>
             </div>
@@ -269,7 +278,7 @@
                   Nivel Escolar
                 </label>
                 <br>
-                <select name="nivelescolar" id="nivelescolar">
+                <select name="nivelescolar" id="nivelescolar" required>
                   <option value="Ninguno">Ninguno</option>
                   <option value="Primaria">Primaria</option>
                   <option value="Secundaria">Secundaria</option>
@@ -277,19 +286,19 @@
                   <option value="Universitario">Universitario</option>
                 </select>
                 <br>
-                <label for="">
+                <label for="lug_trab">
                   Lugar de Trabajo / Estudio
                 </label>
                 <br>
-                <input type="text">
+                <input type="text" id="lug_trab" name="lug_trab">
                 <br>
               </div>
               <div class="groups">
-                <label for="">
+                <label for="profesion">
                   Profesión u Oficio
                 </label>
                 <br>
-                <input type="text">
+                <input type="text" id="profesion" name="profesion">
                 <br>
               </div>
             </div>
@@ -304,7 +313,7 @@
                   Tipo de Sangre
                 </label>
                 <br>
-                <select id="tiposangre" name="tiposangre">
+                <select id="tiposangre" name="tiposangre" required>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
                   <option value="B+">B+</option>
@@ -315,24 +324,43 @@
                   <option value="O-">O-</option>
                 </select>
                 <br>
-                <label for="">
-                  Discapacidad
-                </label>
-                <br>
-                <input type="text">
-                <br>
               </div>
               <div class="groups">
-                <label for="">
+                <label for="alergias">
                   Alergias o Indicaciones Médicas
                 </label>
                 <br>
-                <input type="text">
+                <input type="text" id="alergias" name="alergias">
                 <br>
               </div>
             </div>
             <div class="submit">
               <input type="submit" value="Agregar Miembro">
+            </div>
+            <div class="result" id="result">
+              &nbsp;
+            </div>
+          </div>
+          <div class="buttonsnum">
+            <div class="buttons">
+              <button onclick="transicionFormulario(this.value)" class="btn active" value="1">
+                1
+              </button>
+              <button onclick="transicionFormulario(this.value)" class="btn" value="2">
+                2
+              </button>
+              <button onclick="transicionFormulario(this.value)" class="btn" value="3">
+                3
+              </button>
+              <button onclick="transicionFormulario(this.value)" class="btn" value="4">
+                4
+              </button>
+              <button onclick="transicionFormulario(this.value)" class="btn" value="5">
+                5
+              </button>
+              <button onclick="transicionFormulario(this.value)" class="btn" value="6">
+                6
+              </button>
             </div>
           </div>
         </form>
