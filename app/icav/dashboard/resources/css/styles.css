@@ -83,7 +83,7 @@ body {
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-around;
+  /*justify-content: space-around;*/
   flex-wrap: wrap;
 }
 
@@ -141,7 +141,7 @@ body {
   overflow: hidden;
 }
 
-form .buttonsnum{
+form .buttonsnum {
   position: relative;
   display: flex;
   margin-top: 1px;
@@ -150,7 +150,7 @@ form .buttonsnum{
   width: 100%;
 }
 
-form .buttonsnum button{
+form .buttonsnum button {
   cursor: pointer;
 }
 
@@ -277,39 +277,39 @@ form .section .submit input[type="submit"]:hover {
   color: white;
 }
 
-form .section .result{
+form .section .result {
   position: relative;
   text-align: center;
   height: 20px;
   margin: auto;
   color: white;
   border-radius: 10px;
-  
 }
 
-form .section .result.success{
+form .section .result.success {
   opacity: 0;
   background-color: var(--verde);
 }
 
-.success, .failed{
+.success,
+.failed {
   opacity: 0;
   animation: desaparecer ease-out 3s;
 }
 
 @keyframes desaparecer {
-  0%{
+  0% {
     opacity: 1;
   }
-  80%{
+  80% {
     opacity: 1;
   }
-  100%{
+  100% {
     opacity: 0;
   }
 }
 
-form .section .result.failed{
+form .section .result.failed {
   background-color: var(--rojo);
 }
 
@@ -386,4 +386,114 @@ form .section .result.failed{
   .form {
     margin: 20% auto auto auto;
   }
+}
+
+/* PERFILES */
+
+.section-perfiles {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.section-perfiles .perfiles {
+  position: relative;
+  padding: 10px;
+  margin: 20px;
+  width: 300px;
+  aspect-ratio: 16/9;
+  border: 2px solid var(--gris);
+  border-radius: 20px;
+}
+
+.section-perfiles .perfiles .img {
+  position: relative;
+  width: 50%;
+  float: left;
+  aspect-ratio: 1/1;
+  background-size: cover;
+}
+
+.section-perfiles .perfiles .img img {
+  position: relative;
+  width: 100%;
+  vertical-align: middle;
+  margin: auto;
+  padding: 0;
+}
+
+.section-perfiles .perfiles .info-miembro {
+  position: relative;
+  display: flex;
+  width: 50%;
+  height: 100%;
+  color: black;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.calendario{
+  width: 100%;
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: black;
+}
+
+.calendario #calendar{
+  position: relative;
+  width: 60%;
+}
+
+.calendario .calendar-option{
+  width: 30%;
+  position: relative;
+}
+
+.calendario .calendar-option h2{
+  text-align: center;
+}
+
+.calendario .calendar-option form{
+  padding: 20px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--gris-oscuro);
+  box-shadow: inset 0px 0px 30px 1px rgba(0, 0, 255, 0.211);
+}
+
+.calendario .calendar-option form input{
+  margin: 5px;
+}
+
+.calendario .calendar-option form:last-child{
+  text-align: center;
+}
+
+form input[type="submit"].submit {
+  position: relative;
+  border: 0px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 20px;
+  scale: 1.2;
+  margin: 10px auto;
+  transition: 0.3s;
+}
+
+form input[type="submit"].submit:hover{
+  cursor: pointer;
+  background-color: var(--azul);
+  color: white;
+}
+
+form input {
+  border: 2px solid var(--gris);
+  padding: 5px;
+  border-radius: 15px;
 }

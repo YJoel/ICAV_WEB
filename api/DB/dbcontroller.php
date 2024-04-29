@@ -33,7 +33,7 @@ if (!$conn->connect_error) {
     elseif($_POST["table"] == "miembros"){
       // echo "vamos bien";
       include "./miembros/Miembros.php";
-      echo Miembros::insert($conn, array(
+      $res = Miembros::insert($conn, array(
         "nombres"=>$_POST["nombres"],
         "apellidos"=>$_POST["apellidos"],
         "genero"=>$_POST["genero"],
@@ -56,6 +56,8 @@ if (!$conn->connect_error) {
         "fecha_matr"=>$_POST["fMatrimonio"],
         "lug_trab"=>$_POST["lug_trab"]
       ));
+
+      echo json_encode(array("result"=>$res));
     }
     // INSERT IN MINISTERIOS
     elseif($_POST["table"] == "ministerios"){
