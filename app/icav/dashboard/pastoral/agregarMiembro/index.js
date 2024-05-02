@@ -1,13 +1,19 @@
+document.querySelectorAll(".btn").forEach((btn) => {
+  btn.addEventListener("click", (el) => {
+    el.preventDefault();
+  });
+});
+
 let sections = document.querySelectorAll(".section");
 let index = sections.length;
 
 for (let section in sections) {
   sections[section].style.zIndex = `${index}`;
   if (index > 0) {
-    index-=1;
+    index -= 1;
   }
-  if(index == 0){
-    break
+  if (index == 0) {
+    break;
   }
 }
 
@@ -19,9 +25,8 @@ function transicionFormulario(index) {
   let boton_seleccionado = document.querySelectorAll(".list-sections button")[
     index - 1
   ];
-  let boton_seleccionado1 = document.querySelectorAll(".buttonsnum button")[
-    index - 1
-  ];
+  let boton_seleccionado1 =
+    document.querySelectorAll(".buttonsnum button")[index - 1];
 
   let auxIndex = 0;
   seccion_activa.classList.remove("active");

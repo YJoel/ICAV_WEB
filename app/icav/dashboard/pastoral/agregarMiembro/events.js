@@ -12,10 +12,12 @@ CMno.addEventListener("click", () => {
 });
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  
   let divResul = document.getElementById("result");
   let formdata = new FormData(form);
   formdata.append("op", "insert");
   formdata.append("table", "miembros");
+  console.log([...formdata])
   fetch("./../../../../../api/DB/dbcontroller.php", {
     method: "POST",
     body: formdata,

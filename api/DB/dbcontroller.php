@@ -95,7 +95,7 @@ if (!$conn->connect_error) {
       Lideres::select($conn);
     } elseif ($_POST["table"] == "miembros") {
       include "./miembros/Miembros.php";
-      echo Miembros::select($conn);
+      echo json_encode(Miembros::select($conn));
     } elseif ($_POST["table"] == "ministerios") {
       include "./ministerios/Ministerios.php";
       Ministerios::select($conn);

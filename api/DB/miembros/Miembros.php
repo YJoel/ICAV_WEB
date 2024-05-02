@@ -12,7 +12,7 @@ class Miembros
 
         if ($miembros->num_rows > 0) {
             // output data of each row
-            return json_encode($miembros->fetch_assoc());
+            return $miembros->fetch_assoc();
             /*
             while ($miembro = $miembros->fetch_assoc()) {
                 echo "id: " . $miembro["id"] . " - Name: " . $miembro["firstname"] . " " . $row["lastname"] . "<br>";
@@ -49,7 +49,7 @@ class Miembros
             " . $data["numero_hijos"] . ",
             '" . $data["correo"] . "',
             '" . $data["fecha_matr"] . "',
-            '" . $data["lug_trab"] . "')";
+            '" . $data["lug_trab"] . "');";
 
         if ($conn->query($sql) === TRUE) {
             return 1;

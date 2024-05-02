@@ -205,7 +205,7 @@
                   Número de Hijos
                 </label>
                 <br>
-                <input type="number" id="nHijos" name="nHijos" min="0">
+                <input type="number" id="nHijos" name="nHijos" min="0" value="0">
                 <br>
                 <label for="resCMsino">
                   En caso que la respuesta anterior: <b>conyugue miembro de la iglesia</b> sea sí, indicar el nombre del

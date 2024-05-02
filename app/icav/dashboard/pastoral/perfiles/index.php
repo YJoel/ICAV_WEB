@@ -41,6 +41,7 @@
     </div>
     <div class="content">
       <div class="section-perfiles">
+        <!-- Cargar Perfiles -->
         <div class="perfiles">
           <div class="img side-i">
             <img src="../../../../logos/ICAV-logo-login.png" alt="">
@@ -154,6 +155,7 @@
       </div>
     </div>
   </div>
+  <script src="index.js"></script>
 </body>
 
 </html>
