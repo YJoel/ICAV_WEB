@@ -30,7 +30,7 @@ form.addEventListener("submit", (e) => {
        *
        */
       console.log(data)
-      /*
+      
       divResul.classList.remove("failed");
       divResul.classList.remove("success");
       if (data.result == 1) {
@@ -47,6 +47,6 @@ form.addEventListener("submit", (e) => {
           divResul.innerHTML = "Error al agregar miembro, intente nuevamente";
         }, 500);
       }
-      console.log(data);*/
+      console.log(data);
     });
 });
