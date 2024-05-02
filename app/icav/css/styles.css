@@ -21,18 +21,18 @@ body {
   font-size: medium;
 }
 
-a#atras{
-    position: absolute;
-    text-decoration: none;
-    background: linear-gradient(to right, var(--azul), var(--azul-claro));
-    padding: 10px 15px;
-    border-radius: 20px;
-    color: white;
-    z-index: 1;
-    transition: 0.3s;
+a#atras {
+  position: absolute;
+  text-decoration: none;
+  background: linear-gradient(to right, var(--azul), var(--azul-claro));
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: white;
+  z-index: 1;
+  transition: 0.3s;
 }
 
-a#atras:hover{
+a#atras:hover {
   box-shadow: 3px 3px 5px var(--gris);
 }
 
@@ -82,53 +82,65 @@ a#atras:hover{
 }
 
 .content {
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 90%;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 90%;
+  align-items: center;
+  justify-content: center;
 }
 
-.content form{
-    position: relative;
-    display: flex;
-    width: 90%;
-    height: 60%;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+.content form {
+  position: relative;
+  display: flex;
+  width: 90%;
+  height: 60%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.inputgroup{
-    position: relative;
-    width: 100%;
+.inputgroup {
+  position: relative;
+  width: 100%;
 }
 
-.inputgroup *{
-    margin: 10px;
+.inputgroup * {
+  margin: 10px;
 }
 
-.inputgroup input{
-    position: relative;
-    width: 65%;
-    border-radius: 20px;
-    border: 0px solid white;
-    padding: 10px;
+.inputgroup input,
+.inputgroup a {
+  position: relative;
+  width: 65%;
+  border-radius: 20px;
+  border: 0px solid white;
+  padding: 10px;
 }
 
-.inputgroup input::placeholder{
-    vertical-align: middle;
-    color: gray;
+.inputgroup input::placeholder {
+  vertical-align: middle;
+  color: gray;
 }
 
-.inputgroup:last-child{
-    text-align: center;
+.inputgroup:last-child {
+  text-align: center;
 }
 
-.inputgroup:last-child input{
-    margin-top: 30px;
-    color: white;
-    background-color: var(--azul-claro);
-    align-self: center;
+.inputgroup:last-child input {
+  cursor: pointer;
+  margin-top: 30px;
+  color: white;
+  background-color: var(--azul-claro);
+  align-self: center;
+}
+
+.inputgroup:last-child input[value] {
+  font-size: medium;
+}
+
+.inputgroup a {
+  text-decoration: none;
+  background-color: white;
+  color: var(--azul-claro);
 }

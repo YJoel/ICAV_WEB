@@ -6,7 +6,7 @@ class Miembros
         if ($conn->connect_error) {
             return 0;
         }
-        
+
         $sql = "SELECT * FROM miembros";
         $miembros = $conn->query($sql);
 
@@ -17,9 +17,8 @@ class Miembros
             while ($miembro = $miembros->fetch_assoc()) {
                 echo "id: " . $miembro["id"] . " - Name: " . $miembro["firstname"] . " " . $row["lastname"] . "<br>";
             }*/
-        } else {
-            echo json_encode(array());
         }
+
         return 0;
     }
     public static function insert($conn, $data)
@@ -50,8 +49,7 @@ class Miembros
             " . $data["numero_hijos"] . ",
             '" . $data["correo"] . "',
             '" . $data["fecha_matr"] . "',
-            '" . $data["lug_trab"] . "',
-            )";
+            '" . $data["lug_trab"] . "')";
 
         if ($conn->query($sql) === TRUE) {
             return 1;

@@ -24,7 +24,7 @@
           <div class="text">Inicio de Sesión</div>
         </div>
         <div class="content">
-          <form name="formLogin" id="formLogin" action="../../api/icavcontrollers/BD/connectionMethods.php" method="POST">
+          <form name="formLogin" id="formLogin" action="" method="POST">
             <div class="inputgroup">
                 <label for="usuario">
                     Usuario
@@ -42,9 +42,16 @@
             </div>
 
             <div class="inputgroup">
-                <input type="submit" value="Iniciar Sesión" />
+                <input type="submit" value="Iniciar Sesión" /><a href="./crearCuenta/"> Crear cuenta</a>
             </div>
           </form>
+          <table>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

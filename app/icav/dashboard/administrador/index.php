@@ -40,6 +40,9 @@
       <a href="../pastoral/" class="ministerios">
         <img src="../../../logos/icon-pastoral.png" alt="" style="--color: var(--gris)">
       </a>
+      <a href="../secretaria/" class="ministerios">
+        <img src="../../../logos/icon-secretaria.png" alt="" style="--color: var(--gris)">
+      </a>
       <a href="../escuelaparapadres/" class="ministerios">
         <img src="../../../logos/icon-escuela-para-padres.png" alt="" style="--color: var(--morado)">
       </a>

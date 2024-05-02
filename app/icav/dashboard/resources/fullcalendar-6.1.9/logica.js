@@ -19,11 +19,10 @@ var calendar = new Calendar(calendarEl, {
     let eventName = window.prompt("Nombre del Evento");
 
     if (eventName != null) {
+      console.log(info.date)
       calendar.addEvent({
         title: eventName,
-        start: info.date,
-        eventColor: "green",
-        allDay: true,
+        start: info.date
       });
     }
   },
