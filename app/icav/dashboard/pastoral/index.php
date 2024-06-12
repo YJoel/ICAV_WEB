@@ -52,6 +52,10 @@
       display: none;
     }
   </style>
+  <script>
+    let ministerio = 1;
+  </script>
+  <script src="./../trough.js"></script>
 </head>
 
 <body>
@@ -98,32 +102,12 @@
         <a href="./perfiles/">Perfiles</a>
       </div>
       <div class="funciones">
-        <a href="">Finanzas</a>
+        <a href="./finanzas/">Finanzas</a>
       </div>
     </div>
     <div class="calendario">
       <div id="calendar">
 
-      </div>
-      <div class="calendar-option">
-        <h2>Calendario</h2>
-        <form action="" id="formAgregar">
-          <h3>AGREGAR EVENTO</h3>
-          <input type="text" id="nombreAgregar" name="nombreAgregar" placeholder="Nombre del Evento" required><br>
-          <label for="horaAgregar">Desde:</label>
-          <input type="datetime-local" id="horaInicio" name="horaInicio" required><br>
-          <label for="horaAgregar">Hasta:</label>
-          <input type="datetime-local" id="horaFinal" name="horaFinal"><br>
-          <input type="submit" value="Agregar" id="agregar" name="agregar">
-        </form>
-        <form action="" id="formEliminar">
-          <h3>ELIMINAR EVENTO</h3>
-          <input type="text" id="nombreEliminar" name="nombreEliminar" placeholder="Nombre del Evento" required>
-          <input type="submit" value="Eliminar" id="eliminar" id="eliminar">
-        </form>
-        <form action="" id="formGuardarEventos">
-          <input type="submit" class="submit" value="Guardar Eventos">
-        </form>
       </div>
     </div>
   </div>

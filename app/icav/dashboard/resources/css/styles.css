@@ -13,6 +13,10 @@
   --verde: #00bf63;
 }
 
+input {
+  font-family: sans-serif;
+}
+
 body {
   position: relative;
   display: contents;
@@ -82,7 +86,8 @@ body {
   position: relative;
   display: flex;
   width: 100%;
-  align-items: center;
+  justify-content: center;
+  align-content: baseline;
   /*justify-content: space-around;*/
   flex-wrap: wrap;
 }
@@ -117,8 +122,8 @@ body {
 
 .form {
   position: relative;
-  width: 80%;
-  margin: 10% auto auto auto;
+  width: 100%;
+  margin: 1% auto auto auto;
 }
 
 .form form {
@@ -211,13 +216,14 @@ form .buttonsnum button {
 
 /* CSS - FORMULARIO - INPUTS */
 
-.form form .section .inputs .groups input,
-select {
-  margin-bottom: 10px;
+.form form .section .inputs .groups input:focus,
+select:focus {
+  box-shadow: 0 0 10px gray;
 }
 
 .form form .section .inputs .groups input,
 select {
+  margin-bottom: 10px;
   border: 2px solid var(--gris);
   padding: 5px;
   border-radius: 15px;
@@ -280,7 +286,6 @@ form .section .submit input[type="submit"]:hover {
 form .section .result {
   position: relative;
   text-align: center;
-  height: 20px;
   margin: auto;
   color: white;
   border-radius: 10px;
@@ -400,8 +405,9 @@ form .section .result.failed {
   align-content: center;
 }
 
-.section-perfiles .perfiles {
+.section-perfiles a.perfiles {
   position: relative;
+  text-decoration: none;
   padding: 10px;
   margin: 20px;
   width: 300px;
@@ -410,7 +416,7 @@ form .section .result.failed {
   border-radius: 20px;
 }
 
-.section-perfiles .perfiles .img {
+.section-perfiles a.perfiles .img {
   position: relative;
   width: 50%;
   float: left;
@@ -418,7 +424,7 @@ form .section .result.failed {
   background-size: cover;
 }
 
-.section-perfiles .perfiles .img img {
+.section-perfiles a.perfiles .img img {
   position: relative;
   width: 100%;
   vertical-align: middle;
@@ -426,7 +432,7 @@ form .section .result.failed {
   padding: 0;
 }
 
-.section-perfiles .perfiles .info-miembro {
+.section-perfiles a.perfiles .info-miembro {
   position: relative;
   display: flex;
   width: 50%;
@@ -436,7 +442,7 @@ form .section .result.failed {
   justify-content: space-around;
 }
 
-.calendario{
+.calendario {
   width: 100%;
   position: relative;
   margin: auto;
@@ -446,32 +452,32 @@ form .section .result.failed {
   color: black;
 }
 
-.calendario #calendar{
+.calendario #calendar {
   position: relative;
   width: 60%;
 }
 
-.calendario .calendar-option{
+.calendario .calendar-option {
   width: 30%;
   position: relative;
 }
 
-.calendario .calendar-option h2{
+.calendario .calendar-option h2 {
   text-align: center;
 }
 
-.calendario .calendar-option form{
+.calendario .calendar-option form {
   padding: 20px 10px;
   border-radius: 10px;
   border: 1px solid var(--gris-oscuro);
   box-shadow: inset 0px 0px 30px 1px rgba(0, 0, 255, 0.211);
 }
 
-.calendario .calendar-option form input{
+.calendario .calendar-option form input {
   margin: 5px;
 }
 
-.calendario .calendar-option form:last-child{
+.calendario .calendar-option form:last-child {
   text-align: center;
 }
 
@@ -486,7 +492,7 @@ form input[type="submit"].submit {
   transition: 0.3s;
 }
 
-form input[type="submit"].submit:hover{
+form input[type="submit"].submit:hover {
   cursor: pointer;
   background-color: var(--azul);
   color: white;
@@ -496,4 +502,153 @@ form input {
   border: 2px solid var(--gris);
   padding: 5px;
   border-radius: 15px;
+}
+
+.vistaPerfil {
+  position: relative;
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.vistaPerfil .section {
+  position: relative;
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.vistaPerfil .section .title {
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
+  width: 100%;
+}
+
+.vistaPerfil .section .inputs {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.vistaPerfil .section .inputs .groups {
+  position: relative;
+  width: 40%;
+  display: flex;
+  align-content: space-between;
+  flex-direction: column;
+}
+
+.vistaPerfil .section .inputs .groups label {
+  text-align: center;
+}
+
+.vistaPerfil .section .submit {
+  display: flex;
+  margin: auto;
+}
+
+.vistaPerfil .result {
+  border-radius: 10px;
+}
+
+.vistaPerfil .result.success {
+  opacity: 0;
+  background-color: var(--verde);
+}
+
+.vistaPerfil .result.failed {
+  background-color: var(--rojo);
+}
+
+.estadisticas {
+  position: sticky;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-content: baseline;
+  width: 30%;
+  margin: 5px;
+  top: 20px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px -1px var(--azul);
+  background-color: white;
+  color: black;
+}
+
+.estadisticas .titulo {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+}
+
+.estadisticas .titulo h2 {
+  position: relative;
+  text-align: center;
+  margin: auto;
+}
+
+.estadisticas .contenido {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.diezmo,
+.ofrenda,
+.acciondegracias,
+.pro-templo,
+.otros {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  overflow: hidden;
+}
+
+.diezmo .titulo,
+.ofrenda .titulo,
+.acciondegracias .titulo,
+.pro-templo .titulo,
+.otros .titulo {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.diezmo .titulo h2,
+.ofrenda .titulo h2,
+.acciondegracias .titulo h2,
+.pro-templo .titulo h2,
+.otros .titulo h2 {
+  position: relative;
+  text-align: center;
+  margin: auto;
+}
+
+.diezmo .grafica,
+.ofrenda .grafica,
+.acciondegracias .grafica,
+.pro-templo .grafica,
+.otros .grafica {
+  position: relative;
+  width: 100%;
+}
+
+.diezmo .gráfica #mychart,
+.ofrenda .gráfica #mychart,
+.acciondegracias .gráfica #mychart,
+.pro-templo .gráfica #mychart,
+.otros .gráfica #mychart {
+  position: relative;
+  width: 100%;
 }

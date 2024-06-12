@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfiles</title>
-  <link rel="shortcut icon" href="../../../../logos/ICAV-logo-pes.png" type="image/x-icon">
-  <link rel="stylesheet" href="../../resources/css/styles.css">
+  <title>Editar Perfil</title>
+  <link rel="shortcut icon" href="./../../../../../logos/ICAV-logo-pes.png" type="image/x-icon">
+  <link rel="stylesheet" href="./../../../resources/css/styles.css">
 </head>
 
 <body>
   <div class="container">
     <div class="navbar">
       <div class="container-logo">
-        <img src="../../../../logos/user_icon.png" alt="" />
+        <img src="./../../../../../logos/user_icon.png" alt="" />
       </div>
       <div class="container-info">
         <!--Nombre--><b id="nombre">Nombre de la persona</b> <br />
@@ -22,11 +22,11 @@
       </div>
       <div class="container-menu-exit" style="align-self: flex-end">
         <div class="logo">
-          <img src="../../../../logos/ICAV-logo-login.png" alt="" />
+          <img src="./../../../../../logos/ICAV-logo-login.png" alt="" />
         </div>
         <div class="exit">
-          <a href="../../../">
-            <img src="../../../../logos/backbutton.png" alt="" />
+          <a href="./../../../../">
+            <img src="./../../../../../logos/backbutton.png" alt="" />
           </a>
         </div>
       </div>
@@ -40,12 +40,17 @@
       </div>
     </div>
     <div class="content">
-      <div class="section-perfiles">
-        
+      <div class="vistaPerfil">
+        <form action="" name="vistaPerfil" id="vistaPerfil">
+          &nbsp;
+        </form>
+        <div class="result" id="result" style="text-align: center">
+          
+        </div>
       </div>
     </div>
   </div>
-  <script src="./../../pastoral/perfiles/index.js"></script>
+  <script src="./../../../pastoral/perfiles/editarPerfil/index.js"></script>
 </body>
 
 </html>

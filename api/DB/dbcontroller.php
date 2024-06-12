@@ -23,19 +23,41 @@ if (!$conn->connect_error) {
       Escuelas::insert($conn);
     } elseif ($_POST["table"] == "finanzas") {
       include "./finanzas/Finanzas.php";
-      Roles::insert($conn);
+      $res = Finanzas::insert(
+        $conn,
+        array(
+          "idMiembro" => $_POST["id"],
+          "idAporte" => $_POST["aporteId"],
+          "monto" => $_POST["monto"],
+          "fecha" => $_POST["fecha"],
+          "idServicio" => $_POST["idServicio"]
+        )
+      );
+
+      echo json_encode(
+        array(
+          "res" => $res
+        )
+      );
     } elseif ($_POST["table"] == "lideres") {
       include "./lideres/Lideres.php";
-      Lideres::insert($conn);
+      Lideres::insert(
+        $conn,
+        array(
+          "idMiembro" => $_POST["cedula"],
+          ""
+        )
+      );
     } elseif ($_POST["table"] == "miembros") {
       include "./miembros/Miembros.php";
       $res = Miembros::insert(
         $conn,
         array(
+          "identificacion" => $_POST["identificacion"],
           "nombres" => $_POST["nombres"],
           "apellidos" => $_POST["apellidos"],
           "genero" => $_POST["genero"],
-          "identificacion" => $_POST["identificacion"],
+          "tipo_sangre" => $_POST["tiposangre"],
           "tipo" => $_POST["tipoid"],
           "fecha_nac" => $_POST["fNacimiento"],
           "lug_nac" => $_POST["lNacimiento"],
@@ -73,6 +95,23 @@ if (!$conn->connect_error) {
     } elseif ($_POST["table"] == "visitantes") {
       include "./visitantes/Visitantes.php";
       Visitantes::insert($conn);
+    } elseif ($_POST["table"] == "eventos") {
+      include "./eventos/Eventos.php";
+
+      $evento = array(
+        "id" => $_POST["id"],
+        "titulo" => $_POST["titulo"],
+        "fInicio" => $_POST["fInicio"],
+        "fFin" => $_POST["fFin"]
+      );
+
+      $res = Eventos::insert($conn, $evento);
+
+      echo json_encode(
+        array(
+          "res" => $res
+        )
+      );
     }
   } elseif ($_POST["op"] == "select") {
     if ($_POST["table"] == "aporte") {
@@ -92,10 +131,10 @@ if (!$conn->connect_error) {
       Roles::select($conn);
     } elseif ($_POST["table"] == "lideres") {
       include "./lideres/Lideres.php";
-      Lideres::select($conn);
+      Lideres::select($conn, array());
     } elseif ($_POST["table"] == "miembros") {
       include "./miembros/Miembros.php";
-      echo json_encode(Miembros::select($conn));
+      echo json_encode(Miembros::select($conn, $_POST["condicion"]));
     } elseif ($_POST["table"] == "ministerios") {
       include "./ministerios/Ministerios.php";
       Ministerios::select($conn);
@@ -111,6 +150,31 @@ if (!$conn->connect_error) {
     } elseif ($_POST["table"] == "visitantes") {
       include "./visitantes/Visitantes.php";
       Visitantes::select($conn);
+    } elseif ($_POST["table"] == "eventos") {
+      include "./eventos/Eventos.php";
+      echo json_encode(Eventos::select($conn));
+    } elseif ($_POST["table"] == "cruzada") {
+
+      $sql = $_POST["consulta"];
+      $miembros = $conn->query($sql);
+
+      $data = [];
+      if ($miembros->num_rows > 0) {
+        // output data of each row
+
+        while ($miembro = $miembros->fetch_assoc()) {
+          $res = array(
+            "identificacion" => $miembro["id"],
+            "nombres" => $miembro["nombres"],
+            "apellidos" => $miembro["apellidos"],
+            "fecha" => $miembro["fecha"],
+            "monto" => $miembro["monto"]
+          );
+          array_push($data, $res);
+        }
+
+        echo json_encode($data);
+      }
     }
   } elseif ($_POST["op"] == "update") {
     if ($_POST["table"] == "aporte") {
@@ -149,10 +213,35 @@ if (!$conn->connect_error) {
     } elseif ($_POST["table"] == "visitantes") {
       include "./visitantes/Visitantes.php";
       Visitantes::update($conn);
+    } elseif ($_POST["table"] == "eventos") {
+      include "./eventos/Eventos.php";
+
+      $evento = array(
+        "nombre" => $_POST["nombre"],
+        "id" => $_POST["id"],
+        "fInicio" => $_POST["start"],
+        "fFin" => $_POST["end"],
+        "cond" => $_POST["condicion"]
+      );
+
+      $res = Eventos::update($conn, $evento);
+
+      echo json_encode(
+        array(
+          "res" => $res
+        )
+      );
+    }
+  } elseif ($_POST["op"] == "delete") {
+    if ($_POST["table"] == "eventos") {
+      include "./eventos/Eventos.php";
+      echo json_encode(array("res" => Eventos::delete($conn, $_POST["condicion"])));
     }
   }
+} else {
+  echo "No se pudo conectar";
+  $conn->close();
 }
-
 /*
 $sql = "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('John', 'Doe', 'john@example.com')";
@@ -163,5 +252,3 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 */
-
-$conn->close();

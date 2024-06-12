@@ -48,6 +48,7 @@ a#atras:hover {
 .container-form {
   position: relative;
   width: 35%;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,6 +126,7 @@ a#atras:hover {
 
 .inputgroup:last-child {
   text-align: center;
+  text-wrap: nowrap;
 }
 
 .inputgroup:last-child input {
@@ -133,6 +135,11 @@ a#atras:hover {
   color: white;
   background-color: var(--azul-claro);
   align-self: center;
+  transition: 0.3s;
+}
+
+.inputgroup:last-child input:hover{
+  box-shadow: 0px 0px 5px 2px white;
 }
 
 .inputgroup:last-child input[value] {
@@ -143,4 +150,44 @@ a#atras:hover {
   text-decoration: none;
   background-color: white;
   color: var(--azul-claro);
+  transition: 0.3s;
+}
+
+.inputgroup a:hover{
+  box-shadow: 0px 0px 5px 2px white;
+}
+
+form .result {
+  position: relative;
+  text-align: center;
+  margin: auto;
+  padding: 3px 20px;
+  color: white;
+  border-radius: 20px;
+}
+
+form .result.success {
+  background-color: var(--verde);
+}
+
+form .result.failed {
+  background-color: var(--rojo);
+}
+
+.success,
+.failed {
+  opacity: 0;
+  animation: desaparecer ease-out 3s;
+}
+
+@keyframes desaparecer {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

@@ -367,8 +367,8 @@
       </div>
     </div>
   </div>
-  <script src="index.js"></script>
-  <script src="events.js"></script>
+  <script src="./../../pastoral/agregarMiembro/index.js"></script>
+  <script src="./../../pastoral/agregarMiembro/events.js"></script>
 </body>
 
 </html>

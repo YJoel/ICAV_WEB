@@ -1,36 +1,57 @@
-document
-  .querySelector(".section-perfiles")
-  .addEventListener("DOMContentLoaded", () => {
-    let formData = new FormData();
-    let sectionPerfiles = document.querySelector(".section-perfiles");
+document.body.addEventListener("load", mostrarPerfiles());
 
-    formData.append("op", "select");
-    formData.append("table", "miembros");
+function mostrarPerfiles() {
+  let formData = new FormData();
+  let sectionPerfiles = document.querySelector(".section-perfiles");
 
-    let dbControllerRoute = "./../../../../../api/DB/dbcontroller.php";
-    fetch(dbControllerRoute, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        response.json();
-      })
-      .then((data) => {
-        data.forEach(miembro => {
-          sectionPerfiles.append(createPerfilHtml(miembro))
-        });
+  formData.append("op", "select");
+  formData.append("table", "miembros");
+  formData.append("condicion", "");
+
+  let dbControllerRoute = "./../../../../../api/DB/dbcontroller.php";
+  fetch(dbControllerRoute, {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((miembro) => {
+        sectionPerfiles.innerHTML += createPerfilHtml(miembro);
       });
-  });
+    });
+}
 
 function createPerfilHtml(miembro) {
-  let divPerfiles = document.createElement("div");
-  let divImg = document.createElement("div");
-  let img = document.createElement("img");
-  let divInfo = document.createElement("div");
-  let divNombre = document.createElement("div")
-  let divIdentificacion = document.createElement("div")  
-  let divFechaNac = document.createElement("div")
-  let divNacionalidad = document.createElement("div")
-  let divEstadoCivil = document.createElement("div")
-  divPerfiles.className = "perfiles";
+  return `
+  <a class="perfiles" href="./editarPerfil/?identificacion=${
+    miembro.identificacion
+  }">
+  <div class="img side-i">
+    <img src="../../../../logos/ICAV-logo-login.png" alt="">
+  </div>
+  <div class="info-miembro side-d">
+    <div id="nombre">
+      ${miembro.nombres}
+    </div>
+    <div id="identificacion">
+    ${miembro.tipo}. ${miembro.identificacion}
+    </div>
+    <div id="f_nacimiento">
+    ${miembro.fecha_nac}
+    </div>
+    <div id="nacionalidad">
+    ${miembro.nacionalidad.toUpperCase()}
+    </div>
+    <div id="estado_civil">
+    ${
+      miembro.estado_civil == "Soltero"
+      ? "Soltero(a)"
+      : miembro.estado_civil == "Casado"
+      ? "Casado(a)"
+      : "Viudo(a)"
+    }
+    </div>
+  </div>
+</a>
+  `;
 }

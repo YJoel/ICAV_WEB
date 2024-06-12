@@ -66,7 +66,7 @@
           Información <br> Médica
         </button>
       </div>
-      <div class="form">
+      <div class="form" style="margin: 10% auto auto auto">
         <form action="" method="POST" id="form">
           <div class="section active">
             <div class="title">
@@ -173,7 +173,7 @@
                   Teléfono
                 </label>
                 <br>
-                <input type="tel" id="telefono" name="telefono" required>
+                <input type="number" id="telefono" name="telefono" required>
                 <br>
               </div>
             </div>
@@ -223,17 +223,17 @@
             </div>
             <div class="inputs">
               <div class="groups">
-                <label for="">
+                <label for="ministerio">
                   Ministerio que Representa
                 </label>
                 <br>
-                <input type="text">
+                <input type="text" id="ministerio">
                 <br>
-                <label for="">
+                <label for="ministroBautizo">
                   Nombre del Ministro que lo Bautizó
                 </label>
                 <br>
-                <input type="text" id="">
+                <input type="text" id="ministroBautizo">
                 <br>
                 <label for="AIsi AIno">
                   Asistía antes a otra Iglesia?

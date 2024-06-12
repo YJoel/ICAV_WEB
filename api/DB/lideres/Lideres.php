@@ -1,13 +1,13 @@
 <?php
 class Lideres
 {
-    public static function select($conn)
+    public static function select($conn, $cond)
     {
         if ($conn->connect_error) {
             return 0;
         }
         
-        $sql = "SELECT * FROM lideres";
+        $sql = "SELECT * FROM lideres l, miembros m $cond";
         $miembros = $conn->query($sql);
 
         if ($miembros->num_rows > 0) {
@@ -21,7 +21,7 @@ class Lideres
 
         return 0;
     }
-    public static function insert($conn)
+    public static function insert($conn, $data)
     {
         return 0;
     }

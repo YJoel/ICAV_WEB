@@ -62,5 +62,5 @@
       </div>
     </div>
   </div>
-  <script src="index.js"></script>
+  <script src="./../../../pastoral/agregarMiembro/importar/index.js"></script>
 </body>

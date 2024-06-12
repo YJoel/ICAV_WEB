@@ -15,9 +15,10 @@ form.addEventListener("submit", (e) => {
   
   let divResul = document.getElementById("result");
   let formdata = new FormData(form);
+  //C://fakepath//
+  formdata.set("fotoperfil", (formdata.get("fotoperfil") == "") ? "" : fotoperfil.value.slice(12))
   formdata.append("op", "insert");
   formdata.append("table", "miembros");
-  console.log([...formdata])
   fetch("./../../../../../api/DB/dbcontroller.php", {
     method: "POST",
     body: formdata,
@@ -31,7 +32,6 @@ form.addEventListener("submit", (e) => {
        *
        *
        */
-      console.log(data)
       
       divResul.classList.remove("failed");
       divResul.classList.remove("success");
@@ -42,6 +42,13 @@ form.addEventListener("submit", (e) => {
           divResul.innerHTML = "Miembro Agregado";
         }, 500);
       }
+      else if(data.result == 2){
+        setTimeout(() => {
+          divResul.classList.add("failed");
+          divResul.classList.remove("success");
+          divResul.innerHTML = "Documento de identidad ya registrado en la Base de Datos. No se puede duplicar!";
+        }, 500);
+      }
       else {
         setTimeout(() => {
           divResul.classList.add("failed");
@@ -49,6 +56,5 @@ form.addEventListener("submit", (e) => {
           divResul.innerHTML = "Error al agregar miembro, intente nuevamente";
         }, 500);
       }
-      console.log(data);
     });
 });
