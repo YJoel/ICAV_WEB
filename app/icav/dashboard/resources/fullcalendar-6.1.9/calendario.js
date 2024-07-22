@@ -43,6 +43,8 @@ function loadEvents() {
           title: ev.titulo,
           start: ev.fInicio,
           end: ev.fFin,
+          backgroundColor: ev.color,
+          borderColor: ev.color
         });
       });
     });

@@ -84,7 +84,7 @@
   <div class="content">
     <h1 class="tituloMinisterio" style="color: var(--gris-oscuro)">MINISTERIO DE AUDIOVISUALES</h1>
     <a href="../audiovisuales/" class="ministerios">
-      <img src="../../../logos/icon-audiovisuales.png" alt="">
+      <img src="../../../logos/icon-audiovisuales.png" alt="" style="--color: var(--gris-oscuro)">
     </a>
     <div class="container-funciones">
 

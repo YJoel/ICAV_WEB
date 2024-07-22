@@ -23,35 +23,28 @@ function mostrarPerfiles() {
 
 function createPerfilHtml(miembro) {
   return `
-  <a class="perfiles" href="./editarPerfil/?identificacion=${
+  <div class="card m-3" style="width: 16rem;">
+    <img src="../../../../logos/ICAV-logo-login.png" class="card-img-top" alt="...">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>${miembro.nombres}</b></li>
+      <li class="list-group-item">${miembro.tipo}. ${
     miembro.identificacion
-  }">
-  <div class="img side-i">
-    <img src="../../../../logos/ICAV-logo-login.png" alt="">
-  </div>
-  <div class="info-miembro side-d">
-    <div id="nombre">
-      ${miembro.nombres}
-    </div>
-    <div id="identificacion">
-    ${miembro.tipo}. ${miembro.identificacion}
-    </div>
-    <div id="f_nacimiento">
-    ${miembro.fecha_nac}
-    </div>
-    <div id="nacionalidad">
-    ${miembro.nacionalidad.toUpperCase()}
-    </div>
-    <div id="estado_civil">
-    ${
-      miembro.estado_civil == "Soltero"
-      ? "Soltero(a)"
-      : miembro.estado_civil == "Casado"
-      ? "Casado(a)"
-      : "Viudo(a)"
-    }
+  }</li>
+      <li class="list-group-item">${miembro.fecha_nac}</li>
+      <li class="list-group-item">${miembro.nacionalidad.toUpperCase()}</li>
+      <li class="list-group-item">${
+        miembro.estado_civil == "Soltero"
+          ? "Soltero(a)"
+          : miembro.estado_civil == "Casado"
+          ? "Casado(a)"
+          : "Viudo(a)"
+      }</li>
+    </ul>
+    <div class="card-body">
+      <a type="button" class="btn btn-primary" href="./editarPerfil/?id=${miembro.identificacion}">
+        Ver perfil
+      </a>
     </div>
   </div>
-</a>
   `;
 }

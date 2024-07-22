@@ -18,7 +18,8 @@ class Eventos
                     "id" => $evento["id"],
                     "titulo" => $evento["nombre"],
                     "fInicio" => $evento["fecha_inicio"],
-                    "fFin" => $evento["fecha_fin"]
+                    "fFin" => $evento["fecha_fin"],
+                    "color" => $evento["color"]
                 );
 
                 array_push($data, $res);
@@ -39,7 +40,7 @@ class Eventos
             '" . $data["titulo"] . "',
             '" . $data["fInicio"] . "',
             '" . $data["fFin"] . "',
-            ''
+            '" . $data["color"] . "'
         )";
 
         try {
@@ -66,7 +67,8 @@ class Eventos
         SET fecha_inicio = '" . $data["fInicio"] . "',
         fecha_fin = '" . $data["fFin"] . "',
         id = '" . $data["id"] . "',
-        nombre = '" . $data["nombre"] . "'
+        nombre = '" . $data["nombre"] . "',
+        color = '" . $data["color"] . "'
         " . $data["cond"] . ";";
 
         try {

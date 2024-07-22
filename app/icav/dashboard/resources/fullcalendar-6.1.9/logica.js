@@ -74,6 +74,7 @@ var calendarEl = document.getElementById("calendar");
 var calendar = new Calendar(calendarEl, {
   //timeZone: "UTC",
   initialView: "resourceTimelineDay",
+  dayMaxEvents: true, 
   aspectRatio: 1.5,
   headerToolbar: {
     left: "prev,next",
@@ -208,34 +209,22 @@ var calendar = new Calendar(calendarEl, {
   },
   eventDrop: function (info) {
     console.log(info);
-    const oldStart = new Date(
-      info.oldEvent._instance.range.start.getTime() + 18000000
-    );
-    const oldEnd = new Date(
-      info.oldEvent._instance.range.end.getTime() + 18000000
-    );
     const newStart = new Date(
       info.event._instance.range.start.getTime() + 18000000
     );
     const newEnd = new Date(
       info.event._instance.range.end.getTime() + 18000000
     );
-    let oldResourceId = info.oldEvent._def.resourceIds;
+
     let newResourceId = info.event._def.resourceIds;
-    console.log({
-      oldStart: oldStart,
-      oldEnd: oldEnd,
-      newStart: newStart,
-      newEnd: newEnd,
-      oldResourceId: oldResourceId,
-      newResourceId: newResourceId,
-    });
+    console.log();
 
     const formData = new FormData();
     formData.append("nombre", info.event._def.title);
     formData.append("start", dateSQL(newStart));
     formData.append("end", dateSQL(newEnd));
     formData.append("id", newResourceId);
+    formData.append("color", info.newResource._resource.ui.backgroundColor)
     formData.append("op", "update");
     formData.append("table", "eventos");
     formData.append("condicion", `WHERE nombre = '${info.event._def.title}'`);
@@ -248,12 +237,15 @@ var calendar = new Calendar(calendarEl, {
       .then((data) => {
         if (data.res == 1) {
           console.log("Evento editado");
+          info.event.setProp("backgroundColor", info.newResource._resource.ui.backgroundColor)
+          info.event.setProp("borderColor", info.newResource._resource.ui.backgroundColor)
         } else {
           console.log("No se editó el evento");
         }
       });
   },
   select: function (info) {
+    console.log(info.resource._resource.ui.backgroundColor);
     let eventName = window.prompt(
       `Nombre del Evento que empieza: ${dias[info.start.getDay()]} ${
         info.start.getHours() < 12
@@ -284,6 +276,7 @@ var calendar = new Calendar(calendarEl, {
       formData.append("titulo", eventName);
       formData.append("fInicio", dateSQL(info.start));
       formData.append("fFin", dateSQL(info.end));
+      formData.append("color", info.resource._resource.ui.backgroundColor);
       formData.append("op", "insert");
       formData.append("table", "eventos");
 
@@ -301,6 +294,8 @@ var calendar = new Calendar(calendarEl, {
         title: eventName,
         start: info.startStr,
         end: info.endStr,
+        backgroundColor: info.resource._resource.ui.backgroundColor,
+        borderColor: info.resource._resource.ui.backgroundColor,
       });
     }
 
@@ -327,7 +322,6 @@ document
   .getElementById("calendar")
   .addEventListener("DOMContentLoaded", loadEvents());
 function loadEvents() {
-
   const formdata = new FormData();
   formdata.append("op", "select");
   formdata.append("table", "eventos");
@@ -345,6 +339,8 @@ function loadEvents() {
           title: ev.titulo,
           start: ev.fInicio,
           end: ev.fFin,
+          backgroundColor: ev.color,
+          borderColor: ev.color
         });
       });
     });

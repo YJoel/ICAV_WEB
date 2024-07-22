@@ -7,6 +7,7 @@
   <title>Agregar Miembro</title>
   <link rel="shortcut icon" href="../../../../logos/ICAV-logo-pes.png" type="image/x-icon">
   <link rel="stylesheet" href="../../resources/css/styles.css">
+  <script src="./../../trough.js"></script>
 </head>
 
 <body>

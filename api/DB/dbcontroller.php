@@ -102,7 +102,8 @@ if (!$conn->connect_error) {
         "id" => $_POST["id"],
         "titulo" => $_POST["titulo"],
         "fInicio" => $_POST["fInicio"],
-        "fFin" => $_POST["fFin"]
+        "fFin" => $_POST["fFin"],
+        "color" => $_POST["color"]
       );
 
       $res = Eventos::insert($conn, $evento);
@@ -221,6 +222,7 @@ if (!$conn->connect_error) {
         "id" => $_POST["id"],
         "fInicio" => $_POST["start"],
         "fFin" => $_POST["end"],
+        "color" => $_POST["color"],
         "cond" => $_POST["condicion"]
       );
 
