@@ -1,47 +1,45 @@
-formLogin.addEventListener("submit", (e) => {
+document.getElementById("formLogin").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  let divResul = document.getElementById("result");
-  let formdata = new FormData(formLogin);
+  // console.log(
+  //   await fetch("jsRoutes.php", {}).then((response) => response.json())
+  //   // await fetch("./../../api/users/", {}).then((response) => response.json())
+  // );
 
-  formdata.append("op", "select");
-  formdata.append("table", "lideres");
-  formdata.append(
-    "consulta",
-    `SELECT m.identificacion cedula, m.nombres, m.apellidos, mi.nombre ministerio, l.idMinisterio FROM lideres l, miembros m, ministerios mi WHERE l.idMiembro = ${formdata.get(
-      "password"
-    )} and m.nombres = "${formdata.get("usuario")}" and mi.id = l.idMinisterio;`
-  );
-  console.log(formdata.get("consulta"))
-  fetch("./../../api/icavcontrollers/login/loginController.php", {
-    method: "POST",
-    body: formdata,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Completar mensage de retroalimentacion
-      /**Code...
-       *
-       *
-       *
-       *
-       */
+  const api = "./../../api/users/";
+  const fm = new FormData(e.target);
+  fm.set("origin", "login");
 
-      divResul.classList.remove("failed");
-      divResul.classList.remove("success");
-      if (data.res == 1) {
-        setTimeout(() => {
-          divResul.innerHTML = "Inicio Existoso!!";
-        }, 500);
+  const response = await fetch(api, {
+    method: "post",
+    body: fm,
+  });
 
-        localStorage.setItem("nombres", data.nombres);
-        localStorage.setItem("apellidos", data.apellidos);
-        localStorage.setItem("identificacion", data.identificacion);
-        localStorage.setItem("ministerio", data.ministerio);
-        localStorage.setItem("idMinisterio", data.id);
+  const data = await response.json();
 
-        console.log([localStorage.getItem("nombres"), localStorage.getItem("apellidos"), localStorage.getItem("identificacion"), localStorage.getItem("ministerio"), localStorage.getItem("idMinisterio")])
-        location.assign("./dashboard/");
-      }
-    });
+  if (data) {
+    sessionStorage.setItem("idUser", data.idUser);
+    location.assign("./dashboard/");
+  }
+
+  console.log(data);
 });
+
+const getCurrentTime = () => {
+  const time = new Date();
+  let hour = time.getHours() < 10 ? `0${time.getHours()}` : time.getHours();
+  let min =
+    time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
+  let sec =
+    time.getSeconds() < 10 ? `0${time.getSeconds()}` : time.getSeconds();
+  let ampm = hour < 12 ? "AM" : "PM";
+
+  return `${hour}:${min}:${sec} ${ampm}`;
+};
+
+const htmlElement = document.getElementById("time");
+const showTime = () => {
+  htmlElement.innerHTML = getCurrentTime();
+};
+
+const timeRefresh = setInterval(showTime, 1000, "showTime");

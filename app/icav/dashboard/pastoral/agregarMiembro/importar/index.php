@@ -63,5 +63,6 @@
       </div>
     </div>
   </div>
+  <script src="./../../../../../../api/modules/sheetjs/dist/xlsx.full.min.js"></script>
   <script src="index.js"></script>
 </body>

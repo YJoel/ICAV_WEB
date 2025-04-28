@@ -1,6 +1,6 @@
 <?php
 
-
+// ESTO PERTENECE A LA FUNCIONALIDAD DE SUBIR FOTO DE PERFIL POR AHORA
 include "operaciones.php";
 // Directorio de destino (Carpeta de destino)
 $target_dir = "./../../../../app/icav/dashboard/resources/uploads/pastoral/";
@@ -11,12 +11,11 @@ $metodo = $_POST["metodo"];
 if ($metodo == 1) {
     // Permiso de Subir (Por ahora ok = 1)
     // En caso de algun error (ok = 0). No se puede subir el archivo
-    if(uploadFile($_FILES["file"]["tmp_name"], $target_file) == 1){
+    if (uploadFile($_FILES["file"]["tmp_name"], $target_file) == 1) {
         echo json_encode(array("result" => 1));
-    }
-    else{
+    } else {
         deleteFile($target_file);
-        if(uploadFile($_FILES["file"]["tmp_name"], $target_file) == 1){
+        if (uploadFile($_FILES["file"]["tmp_name"], $target_file) == 1) {
             echo json_encode(array("result" => 1));
         }
     }

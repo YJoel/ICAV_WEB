@@ -105,14 +105,6 @@ CREATE TABLE `finanzas` (
   `idServicio` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `finanzas`
---
-
-INSERT INTO `finanzas` (`id`, `idMiembro`, `idAporte`, `monto`, `fecha`, `idServicio`) VALUES
-(4, 1006868718, 1, 10000, '2001-06-06', 2),
-(5, 1047495846, 1, 50000, '1997-05-21', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -125,14 +117,6 @@ CREATE TABLE `lideres` (
   `idMiembro` int(11) DEFAULT NULL,
   `idMinisterio` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `lideres`
---
-
-INSERT INTO `lideres` (`id`, `idRol`, `idMiembro`, `idMinisterio`) VALUES
-(1, 3, 1006868718, 2),
-(2, 2, 1047495846, 12);
 
 -- --------------------------------------------------------
 
@@ -165,14 +149,6 @@ CREATE TABLE `miembros` (
   `lug_trab` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `miembros`
---
-
-INSERT INTO `miembros` (`identificacion`, `nombres`, `apellidos`, `genero`, `tipo_sangre`, `tipo`, `fecha_nac`, `lug_nac`, `nacionalidad`, `telefono`, `estado_civil`, `dirección`, `escolaridad`, `profesion`, `indicaciones_medicas`, `iglesia_anterior`, `fecha_baut`, `conyugue`, `numero_hijos`, `correo`, `fecha_matr`, `lug_trab`) VALUES
-(1006868718, 'YERSON JOEL', 'GARCIA MERLANO', 'M', '', 'CC', '2001-06-06', 'SAN ANDRES', 'COLOMBIANO', 3245678790, 'Soltero', 'Sector paraíso Manzana k Lote 14', 'Universitario', '', '', '', '0000-00-00', '', 0, 'JOELGARCIA6601@GMAILCOM', '0000-00-00', ''),
-(1047495846, 'YESENIA', 'PADILLA PADILLA', 'F', '', 'CC', '1997-05-21', 'SAN ANDRES', 'colombiana', 3153210369, 'Soltero', 'altos de las colinas de villa barraza', 'Universitario', '', '', '', '0000-00-00', '', 0, 'yesepadilla.21@gmail.com', '0000-00-00', '');
-
 -- --------------------------------------------------------
 
 --
@@ -190,7 +166,7 @@ CREATE TABLE `ministerios` (
 
 INSERT INTO `ministerios` (`id`, `nombre`) VALUES
 (1, 'Ministerio Pastoral'),
-(2, 'Ministerio de Arte y Musica'),
+(2, 'Ministerio de Alabanza'),
 (3, 'Ministerio de Audiovisuales'),
 (4, 'Ministerio de Caballeros'),
 (5, 'Ministerio de Damas'),
@@ -198,9 +174,10 @@ INSERT INTO `ministerios` (`id`, `nombre`) VALUES
 (7, 'Ministerio de Evangelismo'),
 (8, 'Ministerio de Infancia'),
 (9, 'Ministerio de Jovenes'),
-(10, 'Ministerio de Servicio'),
-(11, 'Ministerio de Entrenamiento para Padres'),
-(12, 'Secretaria');
+(10, 'Ministerio de Ujieres'),
+(11, 'Ministerio de Escuela para Padres'),
+(12, 'Ministerio de Danza'),
+(13, 'Secretaria');
 
 -- --------------------------------------------------------
 

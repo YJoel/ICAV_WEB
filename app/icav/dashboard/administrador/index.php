@@ -80,7 +80,7 @@
       <img src="../../../logos/icon-evangelismo.png" alt="" style="--color: var(--azul-claro)">
     </a>
   </div>
-  <script>
+  <!-- <script>
     fetch("../../../../Base de Datos/MEMBRECIA ICAV (Respuestas).csv")
       .then((response => response.text()))
       .then((data) => {
@@ -89,7 +89,7 @@
           console.log(row)
         })
       })
-  </script>
+  </script> -->
 </body>
 
 </html>

@@ -18,13 +18,13 @@
         <div class="card">
           <div class="el" id="icavinterno">
             <a href="icav/">
-              <img src="logos/Icav Interno.png" alt="icavinterno" />
+              <img src="logos/IcavInterno.png" alt="icavinterno" />
             </a>
             ICAV
           </div>
           <div class="el" id="icavexterno">
             <a href="icavSocial/">
-              <img src="logos/Icav Externo.png" alt="icavexterno" />
+              <img src="logos/IcavExterno.png" alt="icavexterno" />
             </a>
             ICAV SOCIAL
           </div>

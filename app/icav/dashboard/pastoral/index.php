@@ -56,6 +56,9 @@
     let ministerio = 1;
   </script>
   <script src="./../trough.js"></script>
+  <script>
+    validator();
+  </script>
 </head>
 
 <body>
