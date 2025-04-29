@@ -1,15 +1,8 @@
 <?php
 session_start();
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  // $getData = json_decode(file_get_contents("php://input"), true);
-  if (isset($_GET["idUser"])) {
-    $idUser = $_SESSION["idUser"];
-    $nombres = $_SESSION["nombres"];
-    $apellidos = $_SESSION["apellidos"];
-    $ministerio = $_SESSION["ministerio"];
-    $rol = $_SESSION["rol"];
-  }
-}
+require_once "./../functions.php";
+
+[$idUser, $nombres, $apellidos, $ministerio, $rol] = revisarCredenciales();
 ?>
 
 <!DOCTYPE html>
@@ -46,15 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
       <hr class="sidebar-divider my-0" />
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
-          <span id="ministerio"><?php
-          // MINISTERIO EN MAYUSCULAS
-          
-          echo strtoupper($ministerio) ?></span>
+          <span id="ministerio">
+            <?php
+            echo strtoupper($ministerio);
+            ?>
+          </span>
         </a>
       </li>
       <hr class="sidebar-divider my-0" />
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="./?idUser=<?php echo $idUser ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>INICIO</span>
         </a>
@@ -368,9 +362,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 aria-haspopup="true" aria-expanded="false">
                 <div class="row w-100 mr-2">
                   <div class="col">
-                    <b id="nombres"><?php echo strtoupper("$nombres $apellidos") ?></b>
+                    <b id="nombres">
+                      <?php
+                      echo strtoupper("$nombres $apellidos")
+                        ?>
+                    </b>
                     <br>
-                    <span id="ministerio"><?php echo strtoupper($ministerio) ?></span>
+                    <span id="ministerio">
+                      <?php
+                      echo strtoupper($ministerio)
+                        ?>
+                    </span>
                   </div>
                 </div>
                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
@@ -398,8 +400,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
           </ul>
         </nav>
         <div class="container-fluid">
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">INICIO</h1>
+          <div class="row">
+            <h1 class="h2 mb-0 text-gray-800">
+              BIENVENIDO
+            </h1>
+          </div>
+          <div class="row">
+            <h1 class="h4 mb-0 text-gray-600">
+              Hola, <?php echo $nombres ?>
+            </h1>
           </div>
           <div class="row">
             <!-- CONTENIDO DE LA PÁGINA -->
