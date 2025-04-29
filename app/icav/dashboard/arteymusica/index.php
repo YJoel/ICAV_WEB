@@ -29,6 +29,7 @@ require_once "./../functions.php";
 
 <body id="page-top">
   <div id="wrapper">
+    <!-- SIDE BAR -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
@@ -196,15 +197,10 @@ require_once "./../functions.php";
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-      <div class="sidebar-card d-none d-lg-flex">
-        <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="..." />
-        <p class="text-center mb-2">
-          <strong>SB Admin Pro</strong> is packed with premium features,
-          components, and more!
-        </p>
-        <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-      </div>
     </ul>
+    <!-- SIDE BAR -->
+
+    <!-- NAV BAR -->
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -419,11 +415,12 @@ require_once "./../functions.php";
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>IGLESIA CRISTIANA ÁGUILAS DE VICTORIA 2025</span>
+            <spa class="h6">IGLESIA CRISTIANA ÁGUILAS DE VICTORIA 2025</span>
           </div>
         </div>
       </footer>
     </div>
+    <!-- NAV BAR -->
   </div>
   <!-- BOTON PARA IR AL PRINCIPIO DE LA PÁGINA -->
   <a class="scroll-to-top rounded" href="#page-top">
@@ -447,7 +444,7 @@ require_once "./../functions.php";
           <button class="btn btn-secondary" type="button" data-dismiss="modal">
             Cancel
           </button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="http://localhost:3000/app/icav/">Logout</a>
         </div>
       </div>
     </div>
