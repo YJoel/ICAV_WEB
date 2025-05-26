@@ -22,13 +22,18 @@ class MiembrosController
     return $this->miembrosService->getById($id);
   }
 
-  public function insert()
+  public function insert(MiembrosDto $miembro)
   {
-    return $this->miembrosService->insert();
+    return $this->miembrosService->insert($miembro);
   }
 
-  public function update()
+  public function update(MiembrosDto $miembro)
   {
-    return $this->miembrosService->update();
+    return $this->miembrosService->update($miembro);
+  }
+
+  public function delete($id)
+  {
+    return $this->miembrosService->delete($id);
   }
 }
