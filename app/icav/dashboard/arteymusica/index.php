@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once "./../functions.php";
+require_once($_SERVER['DOCUMENT_ROOT'] . '/app/icav/dashboard/functions.php');
+
 
 [$idUser, $nombres, $apellidos, $ministerio, $rol] = revisarCredenciales();
 ?>
@@ -18,13 +19,13 @@ require_once "./../functions.php";
   <title>ICAV - APP</title>
 
 
-  <link href="./../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
-  <link
+  <link href="http://localhost:3000/app/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+  <!-- <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet" />
-
-
-  <link href="./../../../css/sb-admin-2.min.css" rel="stylesheet" />
+    rel="stylesheet" /> -->
+  <link href="http://localhost:3000/app/css/sb-admin-2.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body id="page-top">
@@ -33,7 +34,7 @@ require_once "./../functions.php";
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-          <img src="./../../../logos/ICAV-logo-login.png" alt="" width="50px" />
+          <img src="http://localhost:3000/app/logos/ICAV-logo-login.png" alt="" width="50px" />
         </div>
         <div class="sidebar-brand-text mx-3">ICAV APP</div>
       </a>
@@ -55,12 +56,12 @@ require_once "./../functions.php";
         </a>
       </li>
       <hr class="sidebar-divider" />
-      <div class="sidebar-heading">FUNCIONES</div>
+      <div class="sidebar-heading">MEMBRESIA</div>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
           aria-controls="collapseTwo">
           <i class="fas fa-fw fa-table"></i>
-          <span>Eventos</span>
+          <span>Gestion de Miembros</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -71,12 +72,12 @@ require_once "./../functions.php";
         </div>
       </li>
       <hr class="sidebar-divider" />
-      <div class="sidebar-heading">MEMBRESIA</div>
+      <div class="sidebar-heading">FUNCIONES</div>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
           aria-controls="collapseTwo">
           <i class="fas fa-fw fa-table"></i>
-          <span>Gestion de Miembros</span>
+          <span>Eventos</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -200,9 +201,10 @@ require_once "./../functions.php";
     </ul>
     <!-- SIDE BAR -->
 
-    <!-- NAV BAR -->
+    <!-- SIDE CONTENT -->
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
+        <!-- NAV BAR -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
@@ -371,7 +373,14 @@ require_once "./../functions.php";
                     </span>
                   </div>
                 </div>
-                <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
+                <svg width="50" height="50">
+                  <circle cx="20" cy="25" r="20" style="margin-right:10px" />
+                  <text x="15" y="30" fill="white" style="font-size: 20px">
+                    <?php
+                    echo strtoupper($nombres[0])
+                      ?>
+                  </text>
+                </svg>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
@@ -395,6 +404,9 @@ require_once "./../functions.php";
             </li>
           </ul>
         </nav>
+        <!-- NAV BAR -->
+
+        <!-- CONTENIDO DE LA PÁGINA -->
         <div class="container-fluid">
           <div class="row">
             <h1 class="h2 mb-0 text-gray-800">
@@ -406,8 +418,11 @@ require_once "./../functions.php";
               Hola, <?php echo $nombres ?>
             </h1>
           </div>
+
+          <!-- INGRESAR CÓDIGO A PARTIR DE AQUÍ -->
           <div class="row">
-            <!-- CONTENIDO DE LA PÁGINA -->
+
+
           </div>
         </div>
 
@@ -420,7 +435,7 @@ require_once "./../functions.php";
         </div>
       </footer>
     </div>
-    <!-- NAV BAR -->
+    <!-- CONTENIDO DE LA PÁGINA -->
   </div>
   <!-- BOTON PARA IR AL PRINCIPIO DE LA PÁGINA -->
   <a class="scroll-to-top rounded" href="#page-top">
@@ -453,15 +468,17 @@ require_once "./../functions.php";
 
   <script src="./../../../vendor/jquery/jquery.min.js"></script>
   <script src="./../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <script src="./../../../vendor/jquery-easing/jquery.easing.min.js"></script>
-
+  <!-- <script src="./../../../vendor/jquery-easing/jquery.easing.min.js"></script> -->
   <script src="./../../../js/sb-admin-2.min.js"></script>
-
-  <script src="./../../../vendor/chart.js/Chart.min.js"></script>
-
-  <script src="./../../../js/demo/chart-area-demo.js"></script>
-  <script src="./../../../js/demo/chart-pie-demo.js"></script>
+  <!-- <script src="./../../../vendor/chart.js/Chart.min.js"></script> -->
+  <!-- <script src="./../../../js/demo/chart-area-demo.js"></script> -->
+  <!-- <script src="./../../../js/demo/chart-pie-demo.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
   <script src="index.js"></script>
 </body>
 
