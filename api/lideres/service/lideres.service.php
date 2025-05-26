@@ -13,7 +13,7 @@ class LideresService
 
     public function getAll()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM $this->dbTable JOIN miembros ON lideres.idMiembro = miembros.identificacion");
+        $stmt = $this->conn->prepare("SELECT * FROM $this->dbTable JOIN miembros ON lideres.idMiembro = miembros.identificacion JOIN roles ON lideres.idRol = roles.id JOIN ministerios ON lideres.idMinisterio = ministerios.id;");
         $stmt->execute();
         $result = $stmt->get_result();
 
