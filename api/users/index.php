@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $user->password = $_POST['password'];
         $res = $userController->getOne($user);
         if ($res != []) {
-          
+
           $_SESSION["idUser"] = $res[0]["idUser"];
           $_SESSION["nombres"] = $res[0]["nombres"];
           $_SESSION["apellidos"] = $res[0]["apellidos"];
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
           echo json_encode($res[0]);
         } else {
-          echo json_encode([]);
+          echo json_encode(["error" => true, "message" => "Usuario o contraseña incorrectos"]);
         }
       }
     }
