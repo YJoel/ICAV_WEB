@@ -30,8 +30,9 @@ class MinisteriosService
     {
         $stmt = $this->conn->prepare(
             "SELECT * FROM $this->dbTable
-            WHERE BINARY id = $id;"
+            WHERE BINARY id = ?;"
         );
+        $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -44,13 +45,73 @@ class MinisteriosService
         return json_encode($usuarios);
     }
 
-    public function insert()
+    public function insert($ministerio)
     {
+        $stmt = $this->conn->prepare(
+            "INSERT INTO $this->dbTable (id, nombre) VALUES (?, ?)"
+        );
+        $stmt->bind_param(
+            "is",
+            $ministerio->id,
+            $ministerio->nombre
+        );
 
-        return 0;
+        if (!$stmt->execute()) {
+            $stmt->close();
+            return json_encode([
+                "error" => 1,
+                "message" => "Fallo al insertar el registro"
+            ]);
+        }
+        $stmt->close();
+        return json_encode([
+            "error" => 0,
+            "message" => "Registro insertado con éxito"
+        ]);
     }
-    public function update()
+    public function update($ministerio)
     {
-        return 0;
+        $stmt = $this->conn->prepare(
+            "UPDATE $this->dbTable SET nombre = ? WHERE id = ?"
+        );
+        $stmt->bind_param(
+            "si",
+            $ministerio->nombre,
+            $ministerio->id
+        );
+
+        if (!$stmt->execute()) {
+            $stmt->close();
+            return json_encode([
+                "error" => 1,
+                "message" => "Fallo al actualizar el registro"
+            ]);
+        }
+        $stmt->close();
+        return json_encode([
+            "error" => 0,
+            "message" => "Registro actualizado con éxito"
+        ]);
+    }
+
+    public function delete($id)
+    {
+        $stmt = $this->conn->prepare(
+            "DELETE FROM $this->dbTable WHERE id = ?"
+        );
+        $stmt->bind_param("i", $id);
+
+        if (!$stmt->execute()) {
+            $stmt->close();
+            return json_encode([
+                "error" => 1,
+                "message" => "Fallo al eliminar el registro"
+            ]);
+        }
+        $stmt->close();
+        return json_encode([
+            "error" => 0,
+            "message" => "Registro eliminado con éxito"
+        ]);
     }
 }

@@ -22,13 +22,18 @@ class MinisteriosController
     return $this->ministeriosService->getById($id);
   }
 
-  public function insert()
+  public function insert($ministerio)
   {
-    return $this->ministeriosService->insert();
+    return $this->ministeriosService->insert($ministerio);
   }
 
-  public function update()
+  public function update($ministerio)
   {
-    return $this->ministeriosService->update();
+    return $this->ministeriosService->update($ministerio);
+  }
+
+  public function delete($id)
+  {
+    return $this->ministeriosService->delete($id);
   }
 }
