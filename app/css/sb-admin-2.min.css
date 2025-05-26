@@ -64,6 +64,11 @@ nav,
 section {
   display: block;
 }
+
+.py-2.collapse-inner.rounded {
+  background-color: lightblue;
+}
+
 body {
   margin: 0;
   font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
