@@ -1,12 +1,13 @@
 document.getElementById("formLogin").addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const message = document.getElementById("message");
   // console.log(
   //   await fetch("jsRoutes.php", {}).then((response) => response.json())
   //   // await fetch("./../../api/users/", {}).then((response) => response.json())
   // );
 
-  const api = "./../../api/users/";
+  const api = "http://localhost:3000/api/users/";
   const fm = new FormData(e.target);
   fm.set("origin", "login");
 
@@ -17,12 +18,16 @@ document.getElementById("formLogin").addEventListener("submit", async (e) => {
 
   const data = await response.json();
 
-  if (data) {
+  if (!data.error) {
+    console.log(data);
     sessionStorage.setItem("idUser", data.idUser);
     location.assign("./dashboard/");
+  } else if (data.error) {
+    alert("Datos incorrectos");
+    message.innerHTML = "REVISE EL USUARIO Y CONTRASEÑA";
   }
 
-  console.log(data);
+  // console.log(data);
 });
 
 const getCurrentTime = () => {

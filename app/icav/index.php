@@ -10,8 +10,8 @@ require_once "./../variables.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?php echo strtoupper($IGLESIAS[0]["shortcut"]); ?></title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link rel="shortcut icon" href="./../logos/ICAV-logo-pes.png" type="image/x-icon" />
 </head>
 
@@ -50,7 +50,7 @@ require_once "./../variables.php";
       </div>
     </form>
     <p class="text-danger" id="message">
-      
+
     </p>
     <div class="blur">
 
