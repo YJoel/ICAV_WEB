@@ -1,9 +1,12 @@
-<?php
-session_start();
-require_once "./../functions.php";
-
-[$idUser, $nombres, $apellidos, $ministerio, $rol] = revisarCredenciales();
-?>
+<?php session_start();
+require_once($_SERVER['DOCUMENT_ROOT'] . '/app/icav/dashboard/functions.php');
+[
+  $idUser,
+  $nombres,
+  $apellidos,
+  $ministerio,
+  $rol
+] = revisarCredenciales(); ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -12,8 +15,8 @@ require_once "./../functions.php";
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="shortcut icon" href="http://localhost:3000/app/logos/ICAV-logo-pes.png" type="image/x-icon">
   <meta name="description" content="" />
+  <link rel="shortcut icon" href="http://localhost:3000/app/logos/ICAV-logo-pes.png" type="image/x-icon">
   <meta name="author" content="" />
 
   <title>ICAV - APP</title>
@@ -28,7 +31,19 @@ require_once "./../functions.php";
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 
   <style>
-    
+    .ministerios {
+      position: relative;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .ministerio {
+      margin: auto 3rem;
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -36,7 +51,7 @@ require_once "./../functions.php";
   <div id="wrapper">
     <!-- SIDE BAR -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center">
         <div class="sidebar-brand-icon">
           <img src="http://localhost:3000/app/logos/ICAV-logo-login.png" alt="" width="50px" />
         </div>
@@ -44,7 +59,7 @@ require_once "./../functions.php";
       </a>
       <hr class="sidebar-divider my-0" />
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link">
           <span id="ministerio">
             <?php
             echo strtoupper($ministerio);
@@ -53,15 +68,15 @@ require_once "./../functions.php";
         </a>
       </li>
       <hr class="sidebar-divider my-0" />
-      <li class="nav-item active">
-        <a class="nav-link" href="http://localhost:3000/app/icav/dashboard/secretaria/?idUser=<?php echo $idUser ?>">
+      <li class="nav-item">
+        <a class="nav-link" href="./../?idUser=<?php echo $idUser ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>INICIO</span>
         </a>
       </li>
       <hr class="sidebar-divider" />
       <div class="sidebar-heading">MEMBRESIA</div>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#miembros" aria-expanded="true"
           aria-controls="miembros">
           <i class="fas fa-fw fa-table"></i>
@@ -303,7 +318,7 @@ require_once "./../functions.php";
                 <h6 class="dropdown-header">Message Center</h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="..." />
+                    <img class="rounded-circle" src="http://localhost:3000/app/img/undraw_profile_1.svg" alt="..." />
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
@@ -316,7 +331,7 @@ require_once "./../functions.php";
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="..." />
+                    <img class="rounded-circle" src="http://localhost:3000/app/img/undraw_profile_2.svg" alt="..." />
                     <div class="status-indicator"></div>
                   </div>
                   <div>
@@ -329,7 +344,7 @@ require_once "./../functions.php";
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="..." />
+                    <img class="rounded-circle" src="http://localhost:3000/app/img/undraw_profile_3.svg" alt="..." />
                     <div class="status-indicator bg-warning"></div>
                   </div>
                   <div>
@@ -415,37 +430,145 @@ require_once "./../functions.php";
         <div class="container-fluid">
           <div class="row">
             <h1 class="h2 mb-0 text-gray-800">
-              BIENVENIDO (A)
+              GESTION DE LIDERES
             </h1>
           </div>
           <div class="row">
-            <h1 class="h4 mb-0 text-gray-600">
-              Hola, <?php echo $nombres ?>
-            </h1>
+            <div class="col-4">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary mt-3 mb-3" data-bs-toggle="modal"
+                data-bs-target="#modalAgregarMiembro" onclick="dataToForm(null, 1)">
+                Agregar Lider
+              </button>
+            </div>
           </div>
-          <hr>
+          <div class="row">
+            <div class="col-3">
+              <div class="h2 text-center">
+                LIDERES
+              </div>
+              <table class="table table-bordered table-hover table-striped ">
+                <thead class="table-light">
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    Nombres
+                  </th>
+                  <th>
+                    Apellidos
+                  </th>
+                </thead>
+                <tbody id="miembros">
+                </tbody>
+              </table>
+            </div>
+            <div class="col-9">
+              <div class="ministerios">
+                <div class="ministerio dropend">
+                  <a class="card rounded btn border-0 p-2 rounded" style="width: 12rem;" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="http://localhost:3000/app/logos/icon-escuela-para-padres.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE ESCUELA PARA PADRES</b></p>
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+                <div class="ministerio" style="margin-left: 10px;">
+                  <div class="card rounded border-0 p-2 rounded" style="width: 12rem;">
+                    <img src="http://localhost:3000/app/logos/icon-arte-y-musica.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE ALABANZA</b></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ministerio">
+                  <div class="card rounded border-0 p-2 rounded" style="width: 12rem;">
+                    <img src="http://localhost:3000/app/logos/icon-infancia.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE INFANCIA</b></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ministerio">
+                  <div class="card rounded border-0 p-2 rounded" style="width: 12rem;">
+                    <img src="http://localhost:3000/app/logos/icon-jovenes.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE JOVENES</b></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ministerio">
+                  <div class="card rounded border-0 p-2 rounded" style="width: 12rem;">
+                    <img src="http://localhost:3000/app/logos/icon-damas.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE DAMAS</b></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ministerio">
+                  <div class="card rounded border-0 p-2 rounded" style="width: 12rem;">
+                    <img src="http://localhost:3000/app/logos/icon-audiovisuales.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE AUDIOVISUALES</b></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ministerio">
+                  <div class="card rounded border-0 p-2 rounded" style="width: 12rem;">
+                    <img src="http://localhost:3000/app/logos/icon-caballeros.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE CABALLEROS</b></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ministerio">
+                  <div class="card rounded border-0 p-2 rounded" style="width: 12rem;">
+                    <img src="http://localhost:3000/app/logos/icon-ujieres.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE UJIERES</b></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ministerio">
+                  <div class="card rounded border-0 p-2 rounded" style="width: 12rem;">
+                    <img src="http://localhost:3000/app/logos/icon-desarrollo-social.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE DESARROLLO SOCIAL</b></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ministerio">
+                  <div class="card rounded border-0 p-2 rounded" style="width: 12rem;">
+                    <img src="http://localhost:3000/app/logos/icon-evangelismo.png" />
+                    <div class="card-body">
+                      <p class="card-text"><b>MINISTERIO DE DESARROLLO SOCIAL</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <!-- INGRESAR CÓDIGO A PARTIR DE AQUÍ -->
-          <div class="row">
-            <div class="col-6">
-              <p>CONTENIDO DE LA PÁGINA</p>
-            </div>
-            <div class="col-6">
-              <p>CONTENIDO DE LA PÁGINA</p>
-            </div>
-          </div>
         </div>
-
       </div>
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <spa class="h6">IGLESIA CRISTIANA ÁGUILAS DE VICTORIA 2025</span>
-          </div>
-        </div>
-      </footer>
     </div>
-    <!-- CONTENIDO DE LA PÁGINA -->
+  </div>
+  </div>
+  <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <spa class="h6">IGLESIA CRISTIANA ÁGUILAS DE VICTORIA 2025</span>
+      </div>
+    </div>
+  </footer>
+  </div>
+  <!-- CONTENIDO DE LA PÁGINA -->
   </div>
   <!-- BOTON PARA IR AL PRINCIPIO DE LA PÁGINA -->
   <a class="scroll-to-top rounded" href="#page-top">
@@ -486,9 +609,14 @@ require_once "./../functions.php";
   <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
     crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
+
+  <script src="./../miembros/miembros.js"></script>
   <script src="index.js"></script>
 </body>
 
