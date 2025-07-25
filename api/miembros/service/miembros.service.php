@@ -54,11 +54,11 @@ class MiembrosService
     {
         $stmt = $this->conn->prepare(
             "INSERT INTO $this->dbTable VALUES
-            (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+            (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
         $stmt->bind_param(
-            "issssssssdssssssssisss",
+            "isssssssssssssssssisss",
             $miembro->id,
             $miembro->nombres,
             $miembro->apellidos,
